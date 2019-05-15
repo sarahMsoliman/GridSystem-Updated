@@ -1,0 +1,77 @@
+$grid-columns: 10;
+$grid-max-width: 1200px;
+$breakpoint-small: "only screen and (min-width: 0px)";
+$breakpoint-medium: "only screen and (min-width: 768px)";
+$breakpoint-large: "only screen and (min-width: 1024px)";
+$breakpoint-xl: "only screen and (min-width: 1440px)";
+
+.customContainer{
+    width:100%;
+    margin: 0 auto;
+}
+
+.customContainer:after, .customRow:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.gridTestImg{
+    width: 100%;
+}
+
+[class*="col-"]{
+    float: left;
+    padding: 1em;
+    width: 100%;
+    min-height: 1px;
+    box-sizing: border-box;
+}
+
+@media #{$breakpoint-small}{
+    .customContainer{
+        width: 95%;
+        max-width: $grid-max-width;
+    }
+    @for $i from 1 through $grid-columns{
+        .col-cs-#{$i}{
+            width: 100% / $grid-columns * $i;
+        }
+    }
+}
+
+@media #{$breakpoint-medium}{
+    .customContainer{
+        width: 95%;
+        max-width: $grid-max-width;
+    }
+    @for $i from 1 through $grid-columns{
+        .col-cm-#{$i}{
+            width: 100% / $grid-columns * $i;
+        }
+    }
+}
+
+@media #{$breakpoint-large}{
+    .customContainer{
+        width: 95%;
+        max-width: $grid-max-width;
+    }
+    @for $i from 1 through $grid-columns{
+        .col-clg-#{$i}{
+            width: 100% / $grid-columns * $i;
+        }
+    }
+}
+
+@media #{$breakpoint-xl}{
+    .customContainer{
+        width: 95%;
+        max-width: $grid-max-width;
+    }
+    @for $i from 1 through $grid-columns{
+        .col-cxl-#{$i}{
+            width: 100% / $grid-columns * $i;
+        }
+    }
+}
