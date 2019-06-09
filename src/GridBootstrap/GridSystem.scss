@@ -28,7 +28,7 @@ $breakpoint-xl: "only screen and (min-width: 1440px)";
     box-sizing: border-box;
 }
 
-@media #{$breakpoint-small}{
+@mixin grid(){
     .customContainer{
         width: 95%;
         max-width: $grid-max-width;
@@ -40,38 +40,22 @@ $breakpoint-xl: "only screen and (min-width: 1440px)";
     }
 }
 
+@media #{$breakpoint-small}{
+    
+    @include grid();
+}
+
 @media #{$breakpoint-medium}{
-    .customContainer{
-        width: 95%;
-        max-width: $grid-max-width;
-    }
-    @for $i from 1 through $grid-columns{
-        .col-cm-#{$i}{
-            width: 100% / $grid-columns * $i;
-        }
-    }
+
+    @include grid();
 }
 
 @media #{$breakpoint-large}{
-    .customContainer{
-        width: 95%;
-        max-width: $grid-max-width;
-    }
-    @for $i from 1 through $grid-columns{
-        .col-clg-#{$i}{
-            width: 100% / $grid-columns * $i;
-        }
-    }
+
+    @include grid();
 }
 
 @media #{$breakpoint-xl}{
-    .customContainer{
-        width: 95%;
-        max-width: $grid-max-width;
-    }
-    @for $i from 1 through $grid-columns{
-        .col-cxl-#{$i}{
-            width: 100% / $grid-columns * $i;
-        }
-    }
-}
+
+    @include grid();
+ }
