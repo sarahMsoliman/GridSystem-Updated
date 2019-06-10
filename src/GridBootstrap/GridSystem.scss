@@ -1,13 +1,58 @@
 $grid-columns: 10;
 $grid-max-width: 1200px;
+
 $breakpoint-small: "only screen and (min-width: 0px)";
 $breakpoint-medium: "only screen and (min-width: 768px)";
 $breakpoint-large: "only screen and (min-width: 1024px)";
 $breakpoint-xl: "only screen and (min-width: 1440px)";
 
+$column_small: "cs";
+$column_medium: "cm";
+$column_large: "clg";
+$column_xlarge: "cxl";
+
+[class*="col-"]{
+    float: left;
+    padding: 1em;
+    width: 100%;
+    min-height: 1px;
+    box-sizing: border-box;
+}
+
+@mixin grid($columnName){
+    width: 95%;
+    max-width: $grid-max-width;
+
+    @for $i from 1 through $grid-columns{
+        .col-#{$columnName}-#{$i}{
+            width: 100% / $grid-columns * $i;
+        }
+    }
+}
+
 .customContainer{
     width:100%;
     margin: 0 auto;
+
+    @media #{$breakpoint-small}{
+        
+        @include grid($column_small);
+    }
+    
+    @media #{$breakpoint-medium}{
+        
+        @include grid($column_medium);
+    }
+    
+    @media #{$breakpoint-large}{
+
+        @include grid($column_large);
+    }
+    
+    @media #{$breakpoint-xl}{
+
+        @include grid($column_xlarge);
+    }
 }
 
 .customContainer:after, .customRow:after{
@@ -20,42 +65,5 @@ $breakpoint-xl: "only screen and (min-width: 1440px)";
     width: 100%;
 }
 
-[class*="col-"]{
-    float: left;
-    padding: 1em;
-    width: 100%;
-    min-height: 1px;
-    box-sizing: border-box;
-}
 
-@mixin grid(){
-    .customContainer{
-        width: 95%;
-        max-width: $grid-max-width;
-    }
-    @for $i from 1 through $grid-columns{
-        .col-cs-#{$i}{
-            width: 100% / $grid-columns * $i;
-        }
-    }
-}
 
-@media #{$breakpoint-small}{
-    
-    @include grid();
-}
-
-@media #{$breakpoint-medium}{
-
-    @include grid();
-}
-
-@media #{$breakpoint-large}{
-
-    @include grid();
-}
-
-@media #{$breakpoint-xl}{
-
-    @include grid();
- }

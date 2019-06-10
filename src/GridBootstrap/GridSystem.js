@@ -14,7 +14,8 @@ class GridSystem extends Component {
             { id: 6, src: "http://placehold.it/265x282" },
             { id: 7, src: "http://placehold.it/265x282" },
             { id: 8, src: "http://placehold.it/265x282" },
-            { id: 9, src: "http://placehold.it/265x282" }
+            { id: 9, src: "http://placehold.it/265x282" },
+            { id: 10, src: "http://placehold.it/265x282" }
         ]
     }
 
